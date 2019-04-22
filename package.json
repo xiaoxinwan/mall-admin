@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "lxx",
   "license": "MIT",
-  "scripts":{
+  "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server",
     "build": "node-modules/.bin/webpack"
   },
@@ -27,8 +27,8 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
   }
 }
