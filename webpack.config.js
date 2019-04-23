@@ -7,7 +7,13 @@ module.exports = {
   devServer: {
     port: 8090,
     historyApiFallback: {
-      index: '/dist/index.html'
+      index: "/dist/index.html"
+    },
+    proxy: {
+      "/manage": {
+        target: "http://admintest.happymmall.com/",
+        changeOrigin: true
+      }
     }
   },
   mode: "development",
@@ -19,7 +25,9 @@ module.exports = {
   resolve: {
     alias: {
       page: path.resolve(__dirname, "src/page"),
-      components: path.resolve(__dirname, "src/components")
+      components: path.resolve(__dirname, "src/components"),
+      util: path.resolve(__dirname, "src/util"),
+      service: path.resolve(__dirname, "src/service")
     }
   },
   module: {
