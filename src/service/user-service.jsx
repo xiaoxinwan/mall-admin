@@ -33,5 +33,14 @@ class User {
       url: "user/logout.do"
     });
   }
+  getUserList(pageNum,pageSize) {
+    return _loginPage.request({
+      type: "post",
+      url: "/manage/user/list.do",
+      data: {
+        pageNum,pageSize
+      }
+    });
+  }
 }
 export default User;

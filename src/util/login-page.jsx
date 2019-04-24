@@ -6,7 +6,7 @@ class LoginPage {
         url: param.url || "",
         dataType: param.dataType || "json",
         data: param.data || null,
-        success(res) {
+        success: res => {
           if (res.status === 0) {
             typeof resolve === "function" && resolve(res.data, res.msg);
           } else if (res.status === 10) {
@@ -15,7 +15,7 @@ class LoginPage {
             typeof reject === "function" && reject(res.msg || res.data);
           }
         },
-        error(err) {
+        error: err => {
           typeof reject === "function" && reject(err.statusText);
         }
       });
