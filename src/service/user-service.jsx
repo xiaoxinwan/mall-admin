@@ -27,5 +27,11 @@ class User {
     }
     return { status: true, msg: "校验成功！" };
   }
+  logout() {
+    return _loginPage.request({
+      type: "post",
+      url: "user/logout.do"
+    });
+  }
 }
 export default User;

@@ -36,6 +36,7 @@ class Login extends React.Component {
     if (checkResult.status) {
       _user.login(loginInfo).then(
         res => {
+          _loginPage.setStorage("userInfo", res);
           this.props.history.push(this.state.redirect);
           // 从那里来跳回到那里
         },

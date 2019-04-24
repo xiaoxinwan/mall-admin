@@ -1,8 +1,30 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
+import LoginPage from "util/login-page.jsx";
+import User from "service/user-service.jsx";
+
+const _loginPage = new LoginPage();
+const _user = new User();
 
 class TopNav extends React.Component {
-  onLogout(){}
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: _loginPage.getStorage("userInfo").username || ""
+    };
+  }
+
+  onLogout() {
+    _user.logout().then(
+      res => {
+        _loginPage.removeStorage("userInfo");
+        window.location.href = "/login";
+      },
+      err => {
+        _loginPage.errTips(err);
+      }
+    );
+  }
   render() {
     return (
       <div className="navbar navbar-default top-navbar">
@@ -16,7 +38,11 @@ class TopNav extends React.Component {
           <li className="dropdown">
             <a className="dropdown-toggle" href="javascript:;">
               <i className="fa fa-user fa-fw" />
-              <span>欢迎，admin</span>
+              {this.state.username ? (
+                <span>欢迎，{this.state.username}</span>
+              ) : (
+                <span>欢迎你！</span>
+              )}
               <i className="fa fa-caret-down" />
             </a>
             <ul className="dropdown-menu dropdown-user">

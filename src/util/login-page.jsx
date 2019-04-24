@@ -37,7 +37,28 @@ class LoginPage {
     return result ? decodeURIComponent(result[2]) : null;
   }
   errorTips(errMsg) {
-   alert(errMsg || "有地方出错了！");
+    alert(errMsg || "有地方出错了！");
+  }
+  setStorage(name, data) {
+    let dataType = typeof data;
+    if (dataType === "object") {
+      window.localStorage.setItem(name, JSON.stringify(data));
+    } else if (["string", "number", "boolean"].indexOf(dataType) >= 0) {
+      window.localStorage.setItem(name, data);
+    } else {
+      alert("该类型不支持本地存储");
+    }
+  }
+  getStorage(name) {
+    let data = window.localStorage.getItem(name);
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      return "";
+    }
+  }
+  removeStorage(name) {
+    window.localStorage.removeItem(name);
   }
 }
 
