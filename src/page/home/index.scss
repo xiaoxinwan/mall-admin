@@ -1,0 +1,39 @@
+.color-box {
+  display: flex;
+  height: 160px;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  &:hover{
+    text-decoration: none;
+    color: #fff;
+    transform: scale(1.08);
+    transition: all .4s;
+  }
+  &:focus{
+    text-decoration: none;
+    color: #fff;
+  }
+  .count{
+    font-size: 50px;
+  }
+  .desc{
+    font-size: 18px;
+    .fa{
+      margin-right: 10px;
+    }
+  }
+}
+
+.blue{
+  background: #2d8cf0;
+  color: #fff;
+}
+.green{
+  background: #19be6b;
+  color: #fff;
+}
+.brown{
+  background: #ff9900;
+  color: #fff;
+}
