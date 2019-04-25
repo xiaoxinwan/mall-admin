@@ -5,6 +5,7 @@ import Product from "service/product-service.jsx";
 import LoginPage from "util/login-page.jsx";
 import TableList from "util/table-list/index.jsx";
 import Pagination from "util/pagination/index.jsx";
+import ListSearch from "./index-list-search.jsx";
 import "./index.scss";
 const _product = new Product();
 const _loginPage = new LoginPage();
@@ -15,14 +16,23 @@ class ProductList extends React.Component {
     this.state = {
       list: [],
       pageNum: 1,
-      pageSize: 15
+      pageSize: 15,
+      listType: "list"
     };
   }
   componentDidMount() {
     this.loadProductList();
   }
   loadProductList() {
-    _product.getProductList(this.state.pageNum, this.state.pageSize).then(
+    let listParam = {};
+    listParam.listType = this.state.listType;
+    listParam.pageNum = this.state.pageNum;
+    listParam.pageSize = this.state.pageSize;
+    if (this.state.listType === "search") {
+      listParam.searchType = this.state.searchType;
+      listParam.searchKeyword = this.state.searchKeyword;
+    }
+    _product.getProductList(listParam).then(
       res => {
         this.setState(res);
       },
@@ -59,6 +69,20 @@ class ProductList extends React.Component {
         );
     }
   }
+  onSearch(searchType, searchKeyword) {
+    let listType = searchKeyword === "" ? "list" : "search";
+    this.setState(
+      {
+        listType,
+        pageNum: 1,
+        searchType,
+        searchKeyword
+      },
+      () => {
+        this.loadProductList();
+      }
+    );
+  }
   render() {
     let tableHeads = [
       { name: "商品ID", width: "10%" },
@@ -70,6 +94,11 @@ class ProductList extends React.Component {
     return (
       <div id="page-wrapper">
         <PageTitle title="商品管理页" />
+        <ListSearch
+          onSearch={(searchType, searchKeyword) => {
+            this.onSearch(searchType, searchKeyword);
+          }}
+        />
         <TableList tableHeads={tableHeads}>
           {this.state.list.map((product, index) => {
             return (
