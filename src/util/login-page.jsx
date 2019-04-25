@@ -36,6 +36,9 @@ class LoginPage {
     // result : ['param: 123', '', '123', '&']
     return result ? decodeURIComponent(result[2]) : null;
   }
+  successTips(successMsg) {
+    alert(successMsg || '操作成功！')
+  }
   errorTips(errMsg) {
     alert(errMsg || "有地方出错了！");
   }
