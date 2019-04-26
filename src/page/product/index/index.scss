@@ -1,9 +1,15 @@
-.operate{
+.operate {
   margin-right: 10px;
 }
-.search-wrapper{
+.search-wrapper {
   margin-bottom: 20px;
-  .form-group{
+  .form-group {
     margin-right: 15px;
   }
+}
+
+.page-header-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
 }

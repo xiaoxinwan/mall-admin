@@ -10,9 +10,9 @@ class Product {
       url = "/manage/product/list.do";
       data.pageNum = listParam.pageNum;
       data.pageSize = listParam.pageSize;
-    }else if(listParam.listType === 'search') {
-      url = '/manage/product/search.do';
-      data.pageNum = listParam.pageNum
+    } else if (listParam.listType === "search") {
+      url = "/manage/product/search.do";
+      data.pageNum = listParam.pageNum;
       data[listParam.searchType] = listParam.searchKeyword;
     }
     return _loginPage.request({
@@ -26,6 +26,19 @@ class Product {
       type: "post",
       url: "/manage/product/set_sale_status.do",
       data: productInfo
+    });
+  }
+
+  /*
+   * 品类相关
+   */
+  getCategoryList(parentCategoryId) {
+    return _loginPage.request({
+      type: "post",
+      url: "/manage/category/get_category.do",
+      data: {
+        categoryId: parentCategoryId || 0
+      }
     });
   }
 }
