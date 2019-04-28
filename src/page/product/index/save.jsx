@@ -1,17 +1,41 @@
 import React from "react";
 import PageTitle from "components/page-title/index.jsx";
 import CategorySelector from "./category-selector.jsx";
+import FileUploader from "util/file-uploader/index.jsx";
+import LoginPage from "util/login-page.jsx";
+
+import "./save.scss";
+const _loginPage = new LoginPage();
 
 class ProductSave extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       categoryId: 0,
-      parentCategoryId: 0
+      parentCategoryId: 0,
+      subImages: []
     };
   }
   onCategoryChange(categoryId, parentCategoryId) {
-    console.log('categoryId', categoryId, 'parentCategoryId', parentCategoryId);
+    console.log("categoryId", categoryId, "parentCategoryId", parentCategoryId);
+  }
+  onUploadSuccess(res) {
+    let subImages = this.state.subImages;
+    subImages.push(res);
+    this.setState({
+      subImages: subImages
+    });
+  }
+  onUploadError(errMsg) {
+    _loginPage.errorTips(errMsg);
+  }
+  onImageDelete(e) {
+    let index = e.target.getAttribute('index'),
+      subImages = this.state.subImages;
+    subImages.splice(index, 1);
+    this.setState({
+      subImages
+    });
   }
   render() {
     return (
@@ -74,7 +98,28 @@ class ProductSave extends React.Component {
           </div>
           <div className="form-group">
             <label className="col-md-2 control-label">商品图片</label>
-            <div className="col-md-10">tutututututu</div>
+            <div className="col-md-10">
+              {this.state.subImages.length ? (
+                this.state.subImages.map((image, index) => (
+                  <div className="image-container" key={index}>
+                    <img src={image.url} />
+                    <i
+                      className="fa fa-close"
+                      index={index}
+                      onClick={e => this.onImageDelete(e)}
+                    />
+                  </div>
+                ))
+              ) : (
+                <span>暂无图片</span>
+              )}
+            </div>
+            <div className="col-md-offset-2 col-md-10 file-uploader-container">
+              <FileUploader
+                onSuccess={res => this.onUploadSuccess(res)}
+                onError={err => this.onUploadError(err)}
+              />
+            </div>
           </div>
           <div className="form-group">
             <label className="col-md-2 control-label">商品详情</label>
