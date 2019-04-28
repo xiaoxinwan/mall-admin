@@ -41,6 +41,65 @@ class Product {
       }
     });
   }
+  // 获取商品详情
+  getProduct(id) {
+    return _loginPage.request({
+      type: "post",
+      url: "/manage/product/detail.do",
+      data: {
+        productId: id || 0
+      }
+    });
+  }
+
+  /**
+   * 保存相关
+   */
+  checkProduct(product) {
+    let result = {
+      status: true,
+      msg: "验证通过"
+    };
+    if (typeof product.name !== "string" || product.name.length === 0) {
+      return {
+        status: false,
+        msg: "请输入正确的商品名称"
+      };
+    }
+    if (typeof product.subTitle !== "string" || product.subTitle.length === 0) {
+      return {
+        status: false,
+        msg: "请输入正确的商品描述"
+      };
+    }
+    if (typeof product.categoryId !== "number" || !(product.categoryId > 0)) {
+      return {
+        status: false,
+        msg: "请选择正确的商品品类"
+      };
+    }
+    if (typeof product.price !== "number" || !(product.price > 0)) {
+      return {
+        status: false,
+        msg: "请输入正确的商品价格"
+      };
+    }
+    if (typeof product.stock !== "number" || !(product.stock > 0)) {
+      return {
+        status: false,
+        msg: "请输入正确的库存"
+      };
+    }
+    return result;
+  }
+  // 保存商品
+  saveProduct(product) {
+    return _loginPage.request({
+      type: "post",
+      url: "/manage/product/save.do",
+      data: product
+    });
+  }
 }
 
 export default Product;

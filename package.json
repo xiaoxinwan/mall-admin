@@ -32,6 +32,6 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "simditor": "^2.3.24"
+    "simditor": "^2.3.19"
   }
 }

@@ -2012,11 +2012,6 @@ domhandler@^2.3.0:
   dependencies:
     domelementtype "1"
 
-dompurify@^1.0.8:
-  version "1.0.10"
-  resolved "https://registry.npm.taobao.org/dompurify/download/dompurify-1.0.10.tgz#18d7353631c86ee25049e38fbca8c6b2c5a2af87"
-  integrity sha1-GNc1NjHIbuJQSeOPvKjGssWir4c=
-
 domutils@1.5.1:
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/domutils/download/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
@@ -3309,15 +3304,10 @@ jquery@2.x:
   resolved "https://registry.npm.taobao.org/jquery/download/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
   integrity sha1-LInWiJterFIqfuoywUUhVZxsvwI=
 
-jquery@^3.0.0, jquery@^3.3.1:
-  version "3.4.0"
-  resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.4.0.tgz#8de513fa0fa4b2c7d2e48a530e26f0596936efdf"
-  integrity sha1-jeUT+g+kssfS5IpTDibwWWk2798=
-
-jquery@~3.1.0:
-  version "3.1.1"
-  resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
-  integrity sha1-NHwcIcfgBBFeCk2jLOzgQfrTyKM=
+jquery@~2.1.4:
+  version "2.1.4"
+  resolved "https://registry.npm.taobao.org/jquery/download/jquery-2.1.4.tgz#228bde698a0c61431dc2630a6a154f15890d2317"
+  integrity sha1-IoveaYoMYUMdwmMKahVPFYkNIxc=
 
 js-base64@^2.1.8:
   version "2.5.1"
@@ -5214,18 +5204,17 @@ signal-exit@^3.0.0:
   resolved "http://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-simditor@^2.3.24:
-  version "2.3.24"
-  resolved "https://registry.npm.taobao.org/simditor/download/simditor-2.3.24.tgz#2116600598add7e94177cb0a3764da20e29e9747"
-  integrity sha1-IRZgBZit1+lBd8sKN2TaIOKel0c=
+simditor@^2.3.19:
+  version "2.3.19"
+  resolved "https://registry.npm.taobao.org/simditor/download/simditor-2.3.19.tgz#cb98bf3b0031710218e2238f41fd4b24f61c044d"
+  integrity sha1-y5i/OwAxcQIY4iOPQf1LJPYcBE0=
   dependencies:
-    dompurify "^1.0.8"
-    jquery "^3.3.1"
-    simple-hotkeys "^1.0.3"
-    simple-module "^3.0.3"
-    simple-uploader "^3.0.0"
+    jquery "~2.1.4"
+    simple-hotkeys "~1.0.3"
+    simple-module "~2.0.6"
+    simple-uploader "~2.0.7"
 
-simple-hotkeys@^1.0.3:
+simple-hotkeys@~1.0.3:
   version "1.0.3"
   resolved "https://registry.npm.taobao.org/simple-hotkeys/download/simple-hotkeys-1.0.3.tgz#47a5bc35362ca7339611bd09a84fa37818b0bbc6"
   integrity sha1-R6W8NTYspzOWEb0JqE+jeBiwu8Y=
@@ -5233,27 +5222,20 @@ simple-hotkeys@^1.0.3:
     jquery "2.x"
     simple-module "~2.0.5"
 
-simple-module@^3.0.3, simple-module@~3.0.0:
-  version "3.0.3"
-  resolved "https://registry.npm.taobao.org/simple-module/download/simple-module-3.0.3.tgz#ad52766785d27cd9427ee8645a49e41199725a92"
-  integrity sha1-rVJ2Z4XSfNlCfuhkWknkEZlyWpI=
-  dependencies:
-    jquery "^3.0.0"
-
-simple-module@~2.0.5:
+simple-module@~2.0.5, simple-module@~2.0.6:
   version "2.0.6"
   resolved "https://registry.npm.taobao.org/simple-module/download/simple-module-2.0.6.tgz#cec8250325f8c7f575f4aa75c919b38396a6037b"
   integrity sha1-zsglAyX4x/V19Kp1yRmzg5amA3s=
   dependencies:
     jquery "2.x"
 
-simple-uploader@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npm.taobao.org/simple-uploader/download/simple-uploader-3.0.0.tgz#c09f706f1cfcbea1fe780e35759a683b1336d4d1"
-  integrity sha1-wJ9wbxz8vqH+eA41dZpoOxM21NE=
+simple-uploader@~2.0.7:
+  version "2.0.8"
+  resolved "https://registry.npm.taobao.org/simple-uploader/download/simple-uploader-2.0.8.tgz#5fc4106c6d968b0b353293e3b16094aafde957ba"
+  integrity sha1-X8QQbG2Wiws1MpPjsWCUqv3pV7o=
   dependencies:
-    jquery "~3.1.0"
-    simple-module "~3.0.0"
+    jquery "2.x"
+    simple-module "~2.0.5"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
