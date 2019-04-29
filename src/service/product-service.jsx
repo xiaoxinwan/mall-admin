@@ -3,6 +3,7 @@ import LoginPage from "util/login-page.jsx";
 const _loginPage = new LoginPage();
 
 class Product {
+  // 获取商品列表
   getProductList(listParam) {
     let url = "",
       data = {};
@@ -21,6 +22,7 @@ class Product {
       data
     });
   }
+  // 设置商品状态
   setProductStatus(productInfo) {
     return _loginPage.request({
       type: "post",
@@ -32,6 +34,7 @@ class Product {
   /*
    * 品类相关
    */
+  // 获取品类列表
   getCategoryList(parentCategoryId) {
     return _loginPage.request({
       type: "post",
@@ -99,6 +102,21 @@ class Product {
       url: "/manage/product/save.do",
       data: product
     });
+  }
+  // 增加品类
+  addCategory(category) {
+    return _loginPage.request({
+      type: "post",
+      url: "/manage/category/add_category.do",
+      data: category
+    });
+  }
+  updateCategoryName(category) {
+    return _loginPage.request({
+      type: 'post',
+      url: '/manage/category/set_category_name.do',
+      data: category
+    })
   }
 }
 
