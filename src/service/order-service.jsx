@@ -21,6 +21,14 @@ class Order {
       data
     });
   }
+
+  getOrderDetail(orderNo) {
+    return _loginPage.request({
+      type: "post",
+      url: "/manage/order/detail.do",
+      data: { orderNo }
+    });
+  }
 }
 
 export default Order;
